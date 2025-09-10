@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Glow Candles - Admin Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+    <!-- Login Modal -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <div class="login-container">
+                <div class="login-header">
+                    <img src="../assets/LOGO.jpg" alt="Glow Candles" class="logo">
+                    <h2>Admin Login</h2>
+                </div>
+                <form id="loginForm">
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Login</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Dashboard -->
+    <div id="dashboard" class="dashboard" style="display: none;">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-left">
+                <img src="../assets/LOGO.jpg" alt="Glow Candles" class="logo">
+                <h1>Admin Dashboard</h1>
+            </div>
+            <div class="header-right">
+                <span id="adminName"></span>
+                <button id="logoutBtn" class="btn btn-secondary">Logout</button>
+            </div>
+        </header>
+
+        <!-- Navigation -->
+        <nav class="nav">
+            <button class="nav-btn active" data-section="overview">
+                <i class="ri-dashboard-line"></i> Overview
+            </button>
+            <button class="nav-btn" data-section="orders">
+                <i class="ri-shopping-bag-line"></i> Orders
+            </button>
+            <button class="nav-btn" data-section="products">
+                <i class="ri-box-line"></i> Products
+            </button>
+            <button class="nav-btn" data-section="notifications">
+                <i class="ri-notification-line"></i> Notifications
+            </button>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Overview Section -->
+            <section id="overview" class="section active">
+                <h2>Dashboard Overview</h2>
+                
+                <!-- Statistics Cards -->
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="ri-shopping-bag-line"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h3 id="totalOrders">0</h3>
+                            <p>Total Orders</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="ri-time-line"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h3 id="pendingOrders">0</h3>
+                            <p>Pending Orders</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="ri-money-rupee-circle-line"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h3 id="totalRevenue">₹0</h3>
+                            <p>Total Revenue</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="ri-calendar-line"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h3 id="todayOrders">0</h3>
+                            <p>Today's Orders</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Recent Orders -->
+                <div class="card">
+                    <div class="card-header">
+                        <h3>Recent Orders</h3>
+                        <button class="btn btn-primary" onclick="showSection('orders')">View All</button>
+                    </div>
+                    <div class="card-content">
+                        <div class="table-container">
+                            <table id="recentOrdersTable">
+                                <thead>
+                                    <tr>
+                                        <th>Order #</th>
+                                        <th>Customer</th>
+                                        <th>Amount</th>
+                                        <th>Status</th>
+                                        <th>Date</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody></tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Orders Section -->
+            <section id="orders" class="section">
+                <div class="section-header">
+                    <h2>Orders Management</h2>
+                    <div class="filters">
+                        <select id="statusFilter">
+                            <option value="">All Status</option>
+                            <option value="pending">Pending</option>
+                            <option value="confirmed">Confirmed</option>
+                            <option value="processing">Processing</option>
+                            <option value="shipped">Shipped</option>
+                            <option value="delivered">Delivered</option>
+                            <option value="cancelled">Cancelled</option>
+                        </select>
+                        <select id="paymentFilter">
+                            <option value="">All Payments</option>
+                            <option value="pending">Pending</option>
+                            <option value="paid">Paid</option>
+                            <option value="failed">Failed</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-content">
+                        <div class="table-container">
+                            <table id="ordersTable">
+                                <thead>
+                                    <tr>
+                                        <th>Order #</th>
+                                        <th>Customer</th>
+                                        <th>Amount</th>
+                                        <th>Status</th>
+                                        <th>Payment</th>
+                                        <th>Date</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody></tbody>
+                            </table>
+                        </div>
+                        <div class="pagination" id="ordersPagination"></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Products Section -->
+            <section id="products" class="section">
+                <div class="section-header">
+                    <h2>Products Management</h2>
+                </div>
+
+                <div class="card">
+                    <div class="card-content">
+                        <div class="table-container">
+                            <table id="productsTable">
+                                <thead>
+                                    <tr>
+                                        <th>Product</th>
+                                        <th>Price</th>
+                                        <th>Stock</th>
+                                        <th>Category</th>
+                                        <th>Status</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody></tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Notifications Section -->
+            <section id="notifications" class="section">
+                <div class="section-header">
+                    <h2>Notifications</h2>
+                    <button class="btn btn-primary" onclick="markAllAsRead()">Mark All as Read</button>
+                </div>
+
+                <div class="card">
+                    <div class="card-content">
+                        <div id="notificationsList"></div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Order Details Modal -->
+    <div id="orderModal" class="modal">
+        <div class="modal-content large">
+            <div class="modal-header">
+                <h3>Order Details</h3>
+                <button class="close-btn" onclick="closeModal('orderModal')">
+                    <i class="ri-close-line"></i>
+                </button>
+            </div>
+            <div class="modal-body" id="orderDetails"></div>
+        </div>
+    </div>
+
+    <!-- Notification Toast -->
+    <div id="toast" class="toast"></div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="admin.js"></script>
+</body>
+</html>
