@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Contact Us | Glow Candles</title>
+  <link rel="stylesheet" href="contact.css">
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet">
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="logo">
+      <a href="index.html">
+        <img src="assets/LOGO.jpg" alt="Glow Candles Logo">
+        <span class="company-name">Glow Candles</span>
+      </a>
+    </div>
+    <nav class="desktop-nav">
+      <a href="index.html">Home</a>
+      <a href="about.html">About Us</a>
+      <a href="shipping.html">Shipping</a>
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="contact.html" class="active">Contact</a>
+    </nav>
+    <button class="mobile-menu-btn" id="mobile-menu-btn">
+      <i class="ri-menu-line"></i>
+    </button>
+  </header>
+
+  <!-- Mobile Menu -->
+  <nav class="mobile-menu" id="mobile-menu">
+    <a href="index.html">Home</a>
+    <a href="about.html">About Us</a>
+    <a href="shipping.html">Shipping</a>
+    <a href="privacy.html">Privacy Policy</a>
+    <a href="contact.html" class="active">Contact</a>
+  </nav>
+
+  <!-- Contact Section -->
+  <section class="contact">
+    <div class="container">
+      <div class="contact-header">
+        <h1>Get In Touch</h1>
+        <p class="lead">
+          Have any questions or need to get more information about our products at <strong>Glow Candles</strong>?  
+          Either way, you're in the right spot. We'd love to hear from you!
+        </p>
+      </div>
+
+      <div class="contact-content">
+        <div class="contact-info">
+          <div class="info-card">
+            <i class="ri-mail-line"></i>
+            <h3>Email Us</h3>
+            <p>Send us an email anytime</p>
+            <a href="mailto:glowcandles123@gmail.com" class="contact-link">glowcandles123@gmail.com</a>
+          </div>
+
+          <div class="info-card">
+            <i class="ri-phone-line"></i>
+            <h3>Call Us</h3>
+            <p>Speak with our team</p>
+            <a href="tel:+919580684014" class="contact-link">+91 9580684014</a>
+          </div>
+
+          <div class="info-card">
+            <i class="ri-time-line"></i>
+            <h3>Business Hours</h3>
+            <p>We're here to help</p>
+            <span class="contact-link">Mon - Sat: 9:00 AM - 7:00 PM</span>
+          </div>
+        </div>
+
+        <div class="contact-form-container">
+          <h2>Send us a Message</h2>
+          <form class="contact-form" id="contactForm">
+            <div class="form-group">
+              <label for="name">Full Name</label>
+              <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+            </div>
+
+            <div class="form-group">
+              <label for="email">Email Address</label>
+              <input type="email" id="email" name="email" placeholder="Enter your email" required>
+            </div>
+
+            <div class="form-group">
+              <label for="phone">Phone Number</label>
+              <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required>
+            </div>
+
+            <div class="form-group">
+              <label for="subject">Subject</label>
+              <select id="subject" name="subject" required>
+                <option value="">Select a subject</option>
+                <option value="general">General Inquiry</option>
+                <option value="order">Order Support</option>
+                <option value="product">Product Question</option>
+                <option value="shipping">Shipping Information</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" placeholder="Tell us how we can help you..." required></textarea>
+            </div>
+
+            <button type="submit" class="submit-btn">
+              <i class="ri-send-plane-line"></i>
+              Send Message
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-container">
+      <!-- About Us -->
+      <div class="footer-section">
+        <h3>About Us</h3>
+        <p>
+          Glow Candles is one of India's leading handmade decorative candle stores.  
+          We deliver love and light across the nation with beautiful candles made from pure heart.  
+        </p>
+        <p><a href="mailto:glowcandles123@gmail.com" class="email-link">glowcandles123@gmail.com</a></p>
+        <p><i class="ri-phone-line"></i> +91 9580684014</p>
+      </div>
+
+      <!-- Quick Links -->
+      <div class="footer-section">
+        <h3>Quick Links</h3>
+        <ul>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="shipping.html">Shipping Policy</a></li>
+          <li><a href="privacy.html">Privacy Policy</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+
+      <!-- Follow Us -->
+      <div class="footer-section">
+        <h3>Follow Us</h3>
+        <div class="social-links">
+          <a href="https://www.facebook.com" target="_blank">
+            <i class="ri-facebook-line"></i>
+            <span>Facebook</span>
+          </a>
+          <a href="https://www.instagram.com/glow_candels01?igsh=OTc0MTdzOGlmbHIz" target="_blank">
+            <i class="ri-instagram-line"></i>
+            <span>Instagram</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Newsletter -->
+      <div class="footer-section">
+        <h3>Keep In Touch With Us!</h3>
+        <p>Subscribe to our newsletter and get updates on latest designs and offers.</p>
+        <form class="newsletter-form">
+          <input type="email" placeholder="Your email" required>
+          <button type="submit"><i class="ri-send-plane-line"></i></button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Bottom Bar -->
+    <div class="footer-bottom">
+      <p>© 2025 Glow Candles. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <script src="contact.js"></script>
+</body>
+</html>

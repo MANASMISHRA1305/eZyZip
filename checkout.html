@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Checkout | Glow Candles</title>
+  <link rel="stylesheet" href="checkout.css">
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet">
+  <!-- Razorpay Integration -->
+  <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="logo">
+      <a href="index.html">
+        <img src="assets/LOGO.jpg" alt="Glow Candles Logo">
+        <span class="company-name">Glow Candles</span>
+      </a>
+    </div>
+    <nav class="desktop-nav">
+      <a href="index.html">Home</a>
+      <a href="about.html">About Us</a>
+      <a href="shipping.html">Shipping</a>
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <div class="header__right">
+      <div class="cart__icon" id="cart-icon">
+        <i class="ri-shopping-cart-line"></i>
+        <span class="cart__count" id="cart-count">0</span>
+      </div>
+      <button class="mobile-menu-btn" id="mobile-menu-btn">
+        <i class="ri-menu-line"></i>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile Menu -->
+  <nav class="mobile-menu" id="mobile-menu">
+    <a href="index.html">Home</a>
+    <a href="about.html">About Us</a>
+    <a href="shipping.html">Shipping</a>
+    <a href="privacy.html">Privacy Policy</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+
+  <!-- Checkout Section -->
+  <section class="checkout">
+    <div class="container">
+      <div class="checkout-header">
+        <h1><i class="ri-shopping-bag-line"></i> Checkout</h1>
+        <p>Complete your order and make payment</p>
+      </div>
+
+      <div class="checkout-content">
+        <!-- Order Summary -->
+        <div class="order-summary">
+          <h2><i class="ri-shopping-cart-line"></i> Order Summary</h2>
+          <div id="order-items" class="order-items">
+            <!-- Items will be loaded by JavaScript -->
+          </div>
+          <div class="order-totals">
+            <div class="total-row">
+              <span>Subtotal:</span>
+              <span id="subtotal">Rs. 0</span>
+            </div>
+            <div class="total-row">
+              <span>Shipping:</span>
+              <span>Free</span>
+            </div>
+            <div class="total-row">
+              <span>GST (18%):</span>
+              <span id="gst">Rs. 0</span>
+            </div>
+            <div class="total-row final-total">
+              <span>Total:</span>
+              <span id="final-total">Rs. 0</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Checkout Form -->
+        <div class="checkout-form">
+          <!-- Form Progress Indicator -->
+          <div class="form-progress" id="form-progress">
+            <div class="progress-header">
+              <h3><i class="ri-file-list-3-line"></i> Form Completion</h3>
+              <span class="progress-text" id="progress-text">0% Complete</span>
+            </div>
+            <div class="progress-bar">
+              <div class="progress-fill" id="progress-fill"></div>
+            </div>
+            <div class="progress-message" id="progress-message">
+              Please fill all required fields to place your order
+            </div>
+          </div>
+          
+          <form id="checkout-form">
+            <!-- Customer Information -->
+            <div class="form-section">
+              <h3><i class="ri-user-line"></i> Customer Information</h3>
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="firstName">First Name *</label>
+                  <input type="text" id="firstName" name="firstName" required>
+                </div>
+                <div class="form-group">
+                  <label for="lastName">Last Name *</label>
+                  <input type="text" id="lastName" name="lastName" required>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="email">Email Address *</label>
+                <input type="email" id="email" name="email" required>
+              </div>
+              <div class="form-group">
+                <label for="phone">Phone Number *</label>
+                <input type="tel" id="phone" name="phone" required>
+              </div>
+            </div>
+
+            <!-- Shipping Address -->
+            <div class="form-section">
+              <h3><i class="ri-map-pin-line"></i> Shipping Address</h3>
+              <div class="form-group">
+                <label for="address">Street Address *</label>
+                <textarea id="address" name="address" rows="3" required></textarea>
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="city">City *</label>
+                  <input type="text" id="city" name="city" required>
+                </div>
+                <div class="form-group">
+                  <label for="state">State *</label>
+                  <input type="text" id="state" name="state" required>
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="pincode">PIN Code *</label>
+                  <input type="text" id="pincode" name="pincode" required>
+                </div>
+                <div class="form-group">
+                  <label for="country">Country *</label>
+                  <input type="text" id="country" name="country" value="India" readonly>
+                </div>
+              </div>
+            </div>
+
+            <!-- Payment Method -->
+            <div class="form-section">
+              <h3><i class="ri-bank-card-line"></i> Payment Method</h3>
+              <div class="payment-methods">
+                <div class="payment-option">
+                  <input type="radio" id="razorpay" name="paymentMethod" value="razorpay" checked>
+                  
+                </div>
+                <div class="payment-option">
+                  <input type="radio" id="upi" name="paymentMethod" value="upi">
+                  <label for="upi" class="payment-label">
+                    <i class="ri-qr-code-line"></i>
+                    <span>Credit/Debit Card & UPI</span>
+                    <small>Pay with Razorpay (Cards, UPI, Net Banking), Scan QR code to pay directly</small>
+                    
+                  </label>
+                </div>
+                <div class="payment-option">
+                  <input type="radio" id="cod" name="paymentMethod" value="cod">
+                  <label for="cod" class="payment-label">
+                    <i class="ri-money-dollar-circle-line"></i>
+                    <span>Cash on Delivery</span>
+                    <small>Pay when your order arrives</small>
+                  </label>
+                </div>
+              </div>
+              
+              <!-- UPI QR Code Section -->
+              <div class="upi-qr-section" id="upi-qr-section" style="display: none;">
+                <div class="qr-container">
+                  <h4><i class="ri-qr-code-line"></i> Scan QR Code to Pay</h4>
+                  <div class="qr-code">
+                    <img src="assets/qr.jpg" alt="UPI QR Code" class="qr-image">
+                  </div>
+                  <div class="qr-instructions">
+                    <p><strong>How to pay:</strong></p>
+                    <ol>
+                      <li>Open your UPI app (PhonePe, Google Pay, Paytm, etc.)</li>
+                      <li>Scan this QR code</li>
+                      <li>Enter the amount: <span id="qr-amount">Rs. 0</span></li>
+                      <li>Complete the payment</li>
+                      <li>Click "Confirm Payment" below</li>
+                    </ol>
+                  </div>
+                  <div class="payment-confirmation">
+                    <button type="button" class="btn btn-success" onclick="confirmUPIPayment()">
+                      <i class="ri-checkbox-circle-line"></i> I have made the payment
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Terms and Conditions -->
+            <div class="form-section">
+              <div class="terms-checkbox">
+                <input type="checkbox" id="terms" name="terms" required>
+                <label for="terms">
+                  I agree to the <a href="privacy.html" target="_blank">Terms and Conditions</a> and <a href="privacy.html" target="_blank">Privacy Policy</a>
+                </label>
+              </div>
+            </div>
+
+            <!-- Place Order Button -->
+            <div class="form-section">
+              <button type="submit" class="place-order-btn" id="place-order-btn">
+                <i class="ri-lock-line"></i>
+                <span>Place Order & Pay</span>
+                <span class="order-total" id="btn-total">Rs. 0</span>
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-container">
+      <!-- About Us -->
+      <div class="footer-section">
+        <h3>About Us</h3>
+        <p>
+          Glow Candles is one of India's leading handmade decorative candle stores.  
+          We deliver love and light across the nation with beautiful candles made from pure heart.  
+        </p>
+        <p><a href="mailto:glowcandles123@gmail.com" class="email-link">glowcandles123@gmail.com</a></p>
+        <p><i class="ri-phone-line"></i> +91 9580684014</p>
+      </div>
+
+      <!-- Quick Links -->
+      <div class="footer-section">
+        <h3>Quick Links</h3>
+        <ul>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="shipping.html">Shipping Policy</a></li>
+          <li><a href="privacy.html">Privacy Policy</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+
+      <!-- Follow Us -->
+      <div class="footer-section">
+        <h3>Follow Us</h3>
+        <div class="social-links">
+          <a href="https://www.facebook.com" target="_blank">
+            <i class="ri-facebook-line"></i>
+            <span>Facebook</span>
+          </a>
+          <a href="https://www.instagram.com/glow_candels01?igsh=OTc0MTdzOGlmbHIz" target="_blank">
+            <i class="ri-instagram-line"></i>
+            <span>Instagram</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Newsletter -->
+      <div class="footer-section">
+        <h3>Keep In Touch With Us!</h3>
+        <p>Subscribe to our newsletter and get updates on latest designs and offers.</p>
+        <form class="newsletter-form">
+          <input type="email" placeholder="Your email" required>
+          <button type="submit"><i class="ri-send-plane-line"></i></button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Bottom Bar -->
+    <div class="footer-bottom">
+      <p>© 2025 Glow Candles. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Loading Overlay -->
+  <div class="loading-overlay" id="loading-overlay">
+    <div class="loading-spinner">
+      <i class="ri-loader-4-line"></i>
+      <p>Processing your payment...</p>
+    </div>
+  </div>
+
+  <script src="checkout.js"></script>
+  <script src="cart.js"></script>
+</body>
+</html>

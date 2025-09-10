@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <title> Glowing Candles </title>
+  </head>
+  <body>
+    <header class="header__container" id="home">
+      <nav>
+        <div class="nav__header">
+          <div class="nav__logo">
+            <a href="#">
+              <img
+                src="assets/LOGO.jpg"
+                alt="logo-dark"
+                class="logo-dark"
+              />
+              <img
+                src="assets/LOGO.jpg"
+                alt="logo-white"
+                class="logo-white"
+              />
+            </a>
+          </div>
+          <div class="nav__right">
+            <div class="cart__icon" id="cart-icon">
+              <i class="ri-shopping-cart-line"></i>
+              <span class="cart__count" id="cart-count">0</span>
+            </div>
+            <div class="nav__menu__btn" id="menu-btn">
+              <i class="ri-menu-line"></i>
+            </div>
+          </div>
+        </div>
+        <ul class="nav__links" id="nav-links">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#product">Product</a></li>
+          <li><a href="#store">Store</a></li>
+        </ul>
+      </nav>
+      <div class="header__image">
+        <img src="assets/orange.jpg" alt="header" />
+      </div>
+      <div class="header__content">
+        <h1>GLOW CANDLES WITH LOVE</h1>
+        <p>
+          ✨"Illuminate your world with our handcrafted glowing candles.
+          Bringing warmth, beauty, and serenity to every moment."✨
+        </p>
+      </div>
+    </header>
+
+    <section class="section__container feature__container" id="product">
+      <h2 class="section__header">FEATURED</h2>
+      <div class="feature__grid">
+        <div class="feature__card">
+          <span>SALE</span>
+          <img src="assets/rose.jpg" alt="feature" />
+          <h4>BLOOM GLOW</h4>
+          <p>Rs. 199</p>
+          <div class="product__buttons">
+            <button class="btn buy-btn" onclick="buyNow('BLOOM GLOW', 'assets/rose.jpg', 'Rs. 199')">
+              <i class="ri-shopping-bag-line"></i> BUY NOW
+            </button>
+            <button class="btn" onclick="addToCart('BLOOM GLOW', 'assets/rose.jpg', 'Rs. 199')">
+              <i class="ri-shopping-cart-line"></i> ADD TO CART
+            </button>
+          </div>
+        </div>
+        <div class="feature__card">
+          <span>SALE</span>
+          <img src="assets/purple-candle.jpg" alt="feature" />
+          <h4>LAVENDER WAVES</h4>
+          <p>Rs. 199</p>
+          <div class="product__buttons">
+            <button class="btn buy-btn" onclick="buyNow('LAVENDER WAVES', 'assets/purple-candle.jpg', 'Rs. 199')">
+              <i class="ri-shopping-bag-line"></i> BUY NOW
+            </button>
+            <button class="btn" onclick="addToCart('LAVENDER WAVES', 'assets/purple-candle.jpg', 'Rs. 199')">
+              <i class="ri-shopping-cart-line"></i> ADD TO CART
+            </button>
+          </div>
+        </div>
+        <div class="feature__card">
+          <span>SALE</span>
+          <img src="assets/3-rose.jpg" alt="feature" />
+          <h4>ROSE CHARM</h4>
+          <p>Rs. 199</p>
+          <div class="product__buttons">
+            <button class="btn buy-btn" onclick="buyNow('ROSE CHARM', 'assets/3-rose.jpg', 'Rs. 199')">
+              <i class="ri-shopping-bag-line"></i> BUY NOW
+            </button>
+            <button class="btn" onclick="addToCart('ROSE CHARM', 'assets/3-rose.jpg', 'Rs. 199')">
+              <i class="ri-shopping-cart-line"></i> ADD TO CART
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <secttion class="story">
+      <div class="section__container story__container">
+        <div class="story__image">
+          <img src="assets/4.jpg" alt="story" />
+        </div>
+        <div class="story__content">
+          <h2 class="section__header">OUR CANDLES</h2>
+          <h4>BY HANDMADE WITH PURE LOVE</h4>
+          <p>
+            ✨"It all started with a love for creating something simple yet magical.
+            I began making candles by hand, shaping each one with patience and creativity.
+            Today, every candle I make carries that same handmade charm — unique, warm, and full of glow."✨
+          </p>
+        </div>
+      </div>
+    </secttion>
+
+    <section class="section__container arrival__container" id="store">
+      <h2 class="section__header">FOR YOU</h2>
+      <div class="arrival__grid">
+        <div class="arrival__card">
+          <span>NEW</span>
+          <img src="assets/1.jpg" alt="arrival" />
+          <h4>GOLDEN FLAME</h4>
+          <p>Rs. 199</p>
+          <div class="arrival__buttons">
+            <button class="btn read__more">LOVE</button>
+            <button class="btn buy-btn" onclick="buyNow('GOLDEN FLAME', 'assets/1.jpg', 'Rs. 199')">
+              <i class="ri-shopping-bag-line"></i> BUY NOW
+            </button>
+            <button class="btn add__cart" onclick="addToCart('GOLDEN FLAME', 'assets/1.jpg', 'Rs. 199')">
+              <i class="ri-shopping-cart-line"></i> ADD TO CART
+            </button>
+          </div>
+        </div>
+        <div class="arrival__card">
+          <img src="assets/2.jpg" alt="arrival" />
+          <h4>VELVET ROSE</h4>
+          <p>Rs. 199</p>
+          <div class="arrival__buttons">
+            <button class="btn read__more">LOVE</button>
+            <button class="btn buy-btn" onclick="buyNow('VELVET ROSE', 'assets/2.jpg', 'Rs. 199')">
+              <i class="ri-shopping-bag-line"></i> BUY NOW
+            </button>
+            <button class="btn add__cart" onclick="addToCart('VELVET ROSE', 'assets/2.jpg', 'Rs. 199')">
+              <i class="ri-shopping-cart-line"></i> ADD TO CART
+            </button>
+          </div>
+        </div>
+        <div class="arrival__card">
+          <span>NEW</span>
+          <img src="assets/3.jpg" alt="arrival" />
+          <h4>PETAL RADIANCE</h4>
+          <p>Rs. 199</p>
+          <div class="arrival__buttons">
+            <button class="btn read__more">LOVE</button>
+            <button class="btn buy-btn" onclick="buyNow('PETAL RADIANCE', 'assets/3.jpg', 'Rs. 199')">
+              <i class="ri-shopping-bag-line"></i> BUY NOW
+            </button>
+            <button class="btn add__cart" onclick="addToCart('PETAL RADIANCE', 'assets/3.jpg', 'Rs. 199')">
+              <i class="ri-shopping-cart-line"></i> ADD TO CART
+            </button>
+          </div>
+        </div>
+        <div class="arrival__card">
+          <img src="assets/5.jpg" alt="arrival" />
+          <h4>PASTEL BLOOM</h4>
+          <p>Rs. 199</p>
+          <div class="arrival__buttons">
+            <button class="btn read__more">LOVE</button>
+            <button class="btn buy-btn" onclick="buyNow('PASTEL BLOOM', 'assets/5.jpg', 'Rs. 199')">
+              <i class="ri-shopping-bag-line"></i> BUY NOW
+            </button>
+            <button class="btn add__cart" onclick="addToCart('PASTEL BLOOM', 'assets/5.jpg', 'Rs. 199')">
+              <i class="ri-shopping-cart-line"></i> ADD TO CART
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="client">
+      <div class="section__container client__container">
+        <div class="client__image">
+          <img src="assets/6.jpg" alt="client" />
+        </div>
+        <div class="client__content">
+          <!-- Slider main container -->
+          <div class="swiper">
+            <!-- Additional required wrapper -->
+            <div class="swiper-wrapper">
+              <!-- Slides -->
+              <div class="swiper-slide">
+                <div class="client__card">
+                  <span><i class="ri-double-quotes-l"></i></span>
+                  <p>
+                    ✨"Every candle tells a story, lovingly handcrafted with care. The soft glow and gentle warmth of our handmade candles 
+                    don't just light up your home — they fill it with peace, charm, and beauty. 
+                    Whether for yourself or as a gift, our candles make every moment special — a little light that warms the heart."✨
+                  </p>
+                  <div class="client__card__details">
+                    <img src="assets/client-1.jpg" alt="client" />
+                    <div>
+                      <h4>Mehwish Siddiqui</h4>
+                      <h5>Thank You</h5>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="subscribe">
+      <div class="section__container subscribe__container">
+        <div>
+          <h2>FOLLOW OUR INSTAGRAM ACCOUNT</h2>
+          <p>
+            ✨For more details or to place a custom order the way you like, follow us on Instagram. 
+            Stay connected with us for new designs, special offers, and 
+            behind-the-scenes of how we create our handmade candles." ✨
+          </p>
+        </div>
+        <div>
+          <a href="https://www.instagram.com/glow_candels01?igsh=OTc0MTdzOGlmbHIz" target="_blank" class="btn">FOLLOW</a>
+
+        </div>
+      </div>
+    </section>
+
+                                                      <!-- footer -->
+
+  <footer class="footer">
+  <div class="footer-container">
+
+    <!-- About Us -->
+    <div class="footer-section">
+      <h3>About Us</h3>
+      <p>
+        Glow Candles is one of India's leading handmade decorative candle stores.  
+        We deliver love and light across the nation with beautiful candles made from pure heart.  
+      </p><br>
+      <p><a href="mailto:glowcandles123@gmail.com" class="email-link">glowcandles123@gmail.com</a></p>
+      <p><i class="fas fa-phone"></i> +91 9580684014</p>
+    </div>
+
+    <!-- Quick Links -->
+    <div class="footer-section">
+      <h3>Quick Links</h3>
+      <ul>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="shipping.html">Shipping Policy</a></li>
+        <li><a href="privacy.html">Privacy Policy</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+
+    <!-- Follow Us -->
+    <div class="footer-section">
+      <h3>Follow Us</h3>
+      <div class="social-links">
+        <a href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook"></i></a>
+        <a href="https://www.instagram.com/glow_candels01?igsh=OTc0MTdzOGlmbHIz" target="_blank"><i class="fab fa-instagram"></i>Instagram</a>
+      </div>
+    </div>
+
+    <!-- Newsletter -->
+    <div class="footer-section">
+      <h3>Keep In Touch With Us!</h3>
+      <p>Subscribe to our newsletter and get updates on latest designs and offers.</p>
+      <form class="newsletter-form">
+        <input type="email" placeholder="Your email" required>
+        <button type="submit"><i class="fas fa-paper-plane"></i></button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Bottom Bar -->
+  <div class="footer-bottom">
+    <p>© 2025 Glow Candles. All Rights Reserved.</p>
+  </div>
+</footer>
+
+<!-- Font Awesome for icons -->
+<script src="https://kit.fontawesome.com/yourkitid.js" crossorigin="anonymous"></script>
+<script src="footer.js"></script>
+
+
+
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="main.js"></script>
+    <script src="cart.js"></script>
+  </body>
+</html>
